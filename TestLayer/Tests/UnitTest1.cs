@@ -31,7 +31,44 @@ namespace TestLayer.Tests
 
             Assert.That(productNameOnProductPage, Is.EqualTo(productTitle));
         }
+        [Test]
+        public void Test2()
+        {
+            LoginPage loginPage = new LoginPage(Browser);
+            string productTitle = "Sauce Labs Backpack";
 
+            var productNameOnProductPage = loginPage.Login("secret_sauce", "standard_user")
+                .ClickProductByTitle()
+                .GetProductName();
+
+            Assert.That(productNameOnProductPage, Is.EqualTo("Dog"));
+        }
+
+        [Test]
+        public void Test3()
+        {
+            LoginPage loginPage = new LoginPage(Browser);
+            string productTitle = "Sauce Labs Backpack";
+
+            var productNameOnProductPage = loginPage.Login("secret_sauce", "standard_user")
+                .ClickProductByTitle()
+                .GetProductName();
+
+            Assert.That(productNameOnProductPage, Is.EqualTo(productTitle));
+        }
+
+        [Test]
+        public void Test4()
+        {
+            LoginPage loginPage = new LoginPage(Browser);
+            string productTitle = "Sauce Labs Backpack";
+
+            var productNameOnProductPage = loginPage.Login("secret_sauce", "standard_user")
+                .ClickProductByTitle()
+                .GetProductName();
+
+            Assert.That(productNameOnProductPage, Is.EqualTo("Cat"));
+        }
         [TearDown]
         public void Teardown()
         {

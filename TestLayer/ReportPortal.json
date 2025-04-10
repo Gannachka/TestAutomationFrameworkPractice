@@ -1,0 +1,16 @@
+﻿{ 
+  "enabled": true,
+  "server": {
+    "url": "https://reportportal.epam.com",
+    "project": "hanna_vitvor_personal",
+    "apiKey": "New-Key_k9nI3knzRam0auvfvD07Gta74lnwpx6bZLGdZmYvpcd2IPfkfkKQLZIuNWF1Rbkz"
+  },
+
+  "launch": {
+    "name": "New .NET Launch",
+    "description": "My awesome launch",
+    "debugMode": false,
+    "attributes": [ "tag1", "tag2", "platform:x64" ]
+  }
+
+}
