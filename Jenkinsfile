@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'mcr.microsoft.com/dotnet/sdk:7.0' // Use an official .NET SDK image
+        }
+    }
+    
     parameters {
         choice(name: 'BROWSER', choices: ['Chrome', 'Firefox', 'Edge'], description: 'Select browser for UI tests')
     }
@@ -17,6 +22,11 @@ pipeline {
                     // Clone the repository
                     checkout scm
                 }
+            }
+        }
+        stage('Check .NET') {
+            steps {
+                sh 'dotnet --version' // Run a .NET command to verify installation
             }
         }
        stage('Restore Dependencies') {
