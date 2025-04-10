@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        any {
-            image 'mcr.microsoft.com/dotnet/sdk:7.0' // Use an official .NET SDK image
-        }
-    }
+    agent   any
     
     parameters {
         choice(name: 'BROWSER', choices: ['Chrome', 'Firefox', 'Edge'], description: 'Select browser for UI tests')
