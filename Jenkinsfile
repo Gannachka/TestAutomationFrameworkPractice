@@ -19,11 +19,20 @@ pipeline {
                 }
             }
         }
-        stage('Build Solution') {
+       stage('Restore Dependencies') {
       steps {
-        sh 'dotnet build ./TestAutomationFrameworkPractice.sln'
+        sh 'dotnet restore'
       }
     }
+    stage('Build Solution') {
+            steps {
+                script {
+                    echo "Building the .NET Solution..."
+                    // Build the solution for the application
+                    sh 'dotnet build --configuration Release'
+                }
+            }
+        }
 
         stage('Run UI Tests') {
             steps {
