@@ -1,5 +1,5 @@
 pipeline {
-    agent   TestNode
+    agent   any
     
     parameters {
         choice(name: 'BROWSER', choices: ['Chrome', 'Firefox', 'Edge'], description: 'Select browser for UI tests')
