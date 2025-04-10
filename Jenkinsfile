@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+    agent   any
+    
     parameters {
         choice(name: 'BROWSER', choices: ['Chrome', 'Firefox', 'Edge'], description: 'Select browser for UI tests')
     }
@@ -17,6 +18,11 @@ pipeline {
                     // Clone the repository
                     checkout scm
                 }
+            }
+        }
+        stage('Check .NET') {
+            steps {
+                sh 'dotnet --version' // Run a .NET command to verify installation
             }
         }
        stage('Restore Dependencies') {
@@ -42,7 +48,7 @@ pipeline {
                         // Set the browser type and execute UI tests
                         sh """
                             export SELECTED_BROWSER=${params.BROWSER}
-                            dotnet test ./Tests.UI/Tests.UI.csproj --framework net8.0 --logger "trx;LogFileName=TestResults.trx"
+                            dotnet test ./TestLayer/TestLayer.csproj --framework net8.0 --logger "trx;LogFileName=TestResults.trx"
                         """
                     } finally {
                         // Archive UI test results and screenshots
