@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker {
+        any {
             image 'mcr.microsoft.com/dotnet/sdk:7.0' // Use an official .NET SDK image
         }
     }
